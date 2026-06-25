@@ -2,7 +2,7 @@
 <html lang="en" class="theme-light">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>David Zaddach, Curriculum Vitae</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -33,79 +33,125 @@ html { scroll-behavior: smooth; }
 body {
   margin: 0; font-family: "DM Sans", system-ui, sans-serif; background: var(--bg); color: var(--text);
   line-height: 1.55; font-size: 15px;
-  overflow-x: hidden;
-  padding-left: env(safe-area-inset-left);
-  padding-right: env(safe-area-inset-right);
 }
 .layout {
-  display: grid; grid-template-columns: minmax(0,1fr) minmax(0, 42rem) minmax(0,1fr);
+  display: flex;
+  flex-direction: column;
   min-height: 100vh;
 }
-@media (max-width: 960px) {
-  .layout { grid-template-columns: 1fr; }
+aside {
+  position: sticky;
+  top: 0;
+  z-index: 40;
+  padding: .5rem .65rem;
+  border-bottom: 1px solid var(--border);
+  background: var(--card);
+}
+main {
+  width: 100%;
+  max-width: 42rem;
+  margin: 0 auto;
+  padding: 1.25rem 1rem 3rem;
+}
+nav.nav {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: .35rem;
+  font-size: .88rem;
+}
+nav.nav a {
+  color: var(--muted);
+  text-decoration: none;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.35rem;
+  height: 2.35rem;
+  padding: 0;
+}
+nav.nav a:hover, nav.nav a.active {
+  color: var(--text);
+  background: rgba(122,92,30,.12);
+}
+.nav-label { display: none; }
+.nav-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.nav-icon svg {
+  width: 1.1rem;
+  height: 1.1rem;
+  stroke: currentColor;
+  fill: none;
+  stroke-width: 1.75;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+/* Tablet / intermediate: horizontal icon bar, centered content */
+@media (min-width: 700px) and (max-width: 1099px) {
+  main { padding: 1.5rem 1.25rem 3rem; }
+  nav.nav { gap: .45rem; }
+  nav.nav a { width: 2.5rem; height: 2.5rem; }
+}
+/* Desktop: text sidebar left, 3-column layout */
+@media (min-width: 1100px) {
+  .layout {
+    display: grid;
+    grid-template-columns: minmax(10rem, 12rem) minmax(0, 42rem) minmax(0, 1fr);
+  }
   aside {
     grid-column: 1;
-    position: sticky !important;
-    top: 0;
-    z-index: 40;
-    border-right: none;
-    border-bottom: 1px solid var(--border);
-    min-height: auto !important;
-    padding: .75rem .85rem;
+    grid-row: 1 / span 2;
+    align-self: start;
+    min-height: 100vh;
+    padding: 1.25rem 1rem;
+    border-bottom: none;
+    border-right: 1px solid var(--border);
   }
   main {
-    grid-column: 1;
-    width: 100%;
-    max-width: 100%;
-    padding: 1rem .85rem calc(5.5rem + env(safe-area-inset-bottom));
+    grid-column: 2;
+    margin: 0;
+    max-width: none;
+    padding: 1.75rem 1.5rem 3rem;
   }
   nav.nav {
-    flex-direction: row;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    gap: .2rem;
+  }
+  nav.nav a {
+    width: auto;
+    height: auto;
+    padding: .35rem .5rem;
+    justify-content: flex-start;
+    gap: .45rem;
+  }
+  .nav-label { display: inline; }
+  .nav-icon { display: none; }
+}
+@media (max-width: 699px) {
+  nav.nav {
     flex-wrap: nowrap;
     overflow-x: auto;
+    justify-content: flex-start;
     -webkit-overflow-scrolling: touch;
-    gap: .35rem;
     scrollbar-width: none;
   }
   nav.nav::-webkit-scrollbar { display: none; }
-  nav.nav a {
-    white-space: nowrap;
-    flex: 0 0 auto;
-    font-size: .82rem;
-    padding: .4rem .65rem;
-  }
-  .tools {
-    top: auto;
-    bottom: calc(12px + env(safe-area-inset-bottom));
-    left: 12px;
-    right: 12px;
-    justify-content: center;
-  }
-  .tools button, .tools a.tools-btn {
-    font-size: .82rem;
-    padding: .4rem .7rem;
-  }
-  .hero { padding: 1.15rem 1rem; }
-  .hero h1 { font-size: 1.45rem; }
-  .hero .name { font-size: 1.15rem; }
-  .cv-section { padding: 1rem .95rem 1.1rem; }
+  nav.nav a { flex: 0 0 auto; }
   details.job summary {
     flex-direction: column;
     align-items: flex-start;
     gap: .2rem;
   }
-  .job-period { white-space: normal; font-size: .82rem; }
+  .job-period { white-space: normal; }
 }
-@media (max-width: 480px) {
-  body { font-size: 14px; }
-  .hero .c-line { word-break: break-word; }
-  .tools button, .tools a.tools-btn { flex: 1 1 auto; text-align: center; min-width: 0; }
-}
-aside {
-  grid-column: 1; position: sticky; top: 0; align-self: start; padding: 1.25rem 1rem;
-  border-right: 1px solid var(--border); background: var(--card); min-height: 100vh;
-}
-main { grid-column: 2; padding: 1.75rem 1.5rem 3rem; max-width: 42rem; }
 .tools {
   position: fixed; top: 12px; right: 12px; z-index: 50; display: flex; gap: .5rem; flex-wrap: wrap; justify-content: flex-end;
 }
@@ -120,11 +166,6 @@ main { grid-column: 2; padding: 1.75rem 1.5rem 3rem; max-width: 42rem; }
   text-decoration: none; display: inline-block;
 }
 .tools a.tools-btn:hover { border-color: var(--accent2); }
-nav.nav { display: flex; flex-direction: column; gap: .2rem; font-size: .88rem; }
-nav.nav a {
-  color: var(--muted); text-decoration: none; padding: .35rem .5rem; border-radius: 8px;
-}
-nav.nav a:hover, nav.nav a.active { color: var(--text); background: rgba(122,92,30,.12); }
 .hero {
   background: var(--card); border: 1px solid var(--border); border-radius: 16px; padding: 1.5rem 1.35rem;
   box-shadow: var(--shadow); margin-bottom: 1.5rem;
@@ -157,7 +198,6 @@ details.job {
 details.job summary {
   cursor: pointer; list-style: none; display: flex; justify-content: space-between; gap: 1rem; align-items: baseline;
   padding: .55rem 0; font-weight: 600;
-  overflow-wrap: anywhere;
 }
 details.job summary::-webkit-details-marker { display: none; }
 .job-period { font-weight: 500; font-size: .85rem; color: var(--muted); white-space: nowrap; }
@@ -186,7 +226,14 @@ footer.page-footer { margin-top: 2rem; font-size: .85rem; color: var(--muted); t
 <div class="layout">
 <aside>
   <nav class="nav" id="side-nav">
-    <a href="#personal-details" class="nav-a">Personal details</a><a href="#profile" class="nav-a">Profile</a><a href="#skills-knowledge" class="nav-a">Skills &amp; knowledge</a><a href="#professional-experience" class="nav-a">Professional experience</a><a href="#further-experience" class="nav-a">Further experience</a><a href="#education" class="nav-a">Education</a><a href="#certifications-selection" class="nav-a">Certifications (selection)</a><a href="#languages" class="nav-a">Languages</a>
+    <a href="#personal-details" class="nav-a" aria-label="Personal details"><span class="nav-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M20 21a8 8 0 0 0-16 0"/><circle cx="12" cy="8" r="4"/></svg></span><span class="nav-label">Personal details</span></a>
+    <a href="#profile" class="nav-a" aria-label="Profile"><span class="nav-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M10 13h4"/><path d="M10 17h4"/></svg></span><span class="nav-label">Profile</span></a>
+    <a href="#skills-knowledge" class="nav-a" aria-label="Skills and knowledge"><span class="nav-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3l1.5 4.5L18 9l-4.5 1.5L12 15l-1.5-4.5L6 9l4.5-1.5L12 3z"/><path d="M5 19l1 3 1-3 3-1-3-1-1-3-1 3-3 1 3 1z"/><path d="M19 13l.8 2.2L22 16l-2.2.8L19 19l-.8-2.2L16 16l2.2-.8L19 13z"/></svg></span><span class="nav-label">Skills &amp; knowledge</span></a>
+    <a href="#professional-experience" class="nav-a" aria-label="Professional experience"><span class="nav-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/></svg></span><span class="nav-label">Professional experience</span></a>
+    <a href="#further-experience" class="nav-a" aria-label="Further experience"><span class="nav-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 8v8"/><path d="M8 12h8"/></svg></span><span class="nav-label">Further experience</span></a>
+    <a href="#education" class="nav-a" aria-label="Education"><span class="nav-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M22 10L12 5 2 10l10 5 10-5z"/><path d="M6 12v5c0 0 2.5 3 6 3s6-3 6-3v-5"/></svg></span><span class="nav-label">Education</span></a>
+    <a href="#certifications-selection" class="nav-a" aria-label="Certifications"><span class="nav-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="5"/><path d="M8.5 14.5L7 22l5-2.5L17 22l-1.5-7.5"/></svg></span><span class="nav-label">Certifications (selection)</span></a>
+    <a href="#languages" class="nav-a" aria-label="Languages"><span class="nav-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M2 12h20"/><path d="M12 3a15 15 0 0 1 0 18"/><path d="M12 3a15 15 0 0 0 0 18"/></svg></span><span class="nav-label">Languages</span></a>
   </nav>
 </aside>
 <main>
