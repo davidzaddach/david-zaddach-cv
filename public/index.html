@@ -40,18 +40,21 @@ body {
   min-height: 100vh;
 }
 aside {
-  position: sticky;
-  top: 0;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
   z-index: 40;
-  padding: .5rem .65rem;
-  border-bottom: 1px solid var(--border);
+  padding: .5rem .65rem calc(.5rem + env(safe-area-inset-bottom, 0px));
+  border-top: 1px solid var(--border);
   background: var(--card);
+  box-shadow: 0 -4px 18px rgba(0,0,0,.06);
 }
 main {
   width: 100%;
   max-width: 42rem;
   margin: 0 auto;
-  padding: 1.25rem 1rem 3rem;
+  padding: 1.25rem 1rem calc(4.75rem + env(safe-area-inset-bottom, 0px));
 }
 nav.nav {
   display: flex;
@@ -92,10 +95,10 @@ nav.nav a:hover, nav.nav a.active {
   stroke-linecap: round;
   stroke-linejoin: round;
 }
-/* Tablet / intermediate: horizontal icon bar, centered content */
+/* Tablet / intermediate: horizontal icon bar at bottom */
 @media (min-width: 700px) and (max-width: 1099px) {
-  main { padding: 1.5rem 1.25rem 3rem; }
-  nav.nav { gap: .45rem; }
+  main { padding: 1.5rem 1.25rem calc(5rem + env(safe-area-inset-bottom, 0px)); }
+  nav.nav { gap: .45rem; justify-content: center; }
   nav.nav a { width: 2.5rem; height: 2.5rem; }
 }
 /* Desktop: text sidebar left, 3-column layout */
@@ -105,13 +108,19 @@ nav.nav a:hover, nav.nav a.active {
     grid-template-columns: minmax(10rem, 12rem) minmax(0, 42rem) minmax(0, 1fr);
   }
   aside {
+    position: sticky;
+    top: 0;
+    bottom: auto;
+    left: auto;
+    right: auto;
     grid-column: 1;
     grid-row: 1 / span 2;
     align-self: start;
     min-height: 100vh;
     padding: 1.25rem 1rem;
-    border-bottom: none;
+    border-top: none;
     border-right: 1px solid var(--border);
+    box-shadow: none;
   }
   main {
     grid-column: 2;
