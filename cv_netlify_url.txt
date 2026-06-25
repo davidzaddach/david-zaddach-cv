@@ -1,0 +1,2 @@
+# Öffentliche URL der HTML-CV auf Netlify (eine Zeile, beginnend mit https://).
+https://davidzaddach.netlify.app/
