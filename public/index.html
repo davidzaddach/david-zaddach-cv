@@ -2,7 +2,7 @@
 <html lang="en" class="theme-light">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>David Zaddach, Curriculum Vitae</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -33,6 +33,9 @@ html { scroll-behavior: smooth; }
 body {
   margin: 0; font-family: "DM Sans", system-ui, sans-serif; background: var(--bg); color: var(--text);
   line-height: 1.55; font-size: 15px;
+  overflow-x: hidden;
+  padding-left: env(safe-area-inset-left);
+  padding-right: env(safe-area-inset-right);
 }
 .layout {
   display: grid; grid-template-columns: minmax(0,1fr) minmax(0, 42rem) minmax(0,1fr);
@@ -40,7 +43,63 @@ body {
 }
 @media (max-width: 960px) {
   .layout { grid-template-columns: 1fr; }
-  aside { position: relative !important; top: 0 !important; border-right: none; border-bottom: 1px solid var(--border); }
+  aside {
+    grid-column: 1;
+    position: sticky !important;
+    top: 0;
+    z-index: 40;
+    border-right: none;
+    border-bottom: 1px solid var(--border);
+    min-height: auto !important;
+    padding: .75rem .85rem;
+  }
+  main {
+    grid-column: 1;
+    width: 100%;
+    max-width: 100%;
+    padding: 1rem .85rem calc(5.5rem + env(safe-area-inset-bottom));
+  }
+  nav.nav {
+    flex-direction: row;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    gap: .35rem;
+    scrollbar-width: none;
+  }
+  nav.nav::-webkit-scrollbar { display: none; }
+  nav.nav a {
+    white-space: nowrap;
+    flex: 0 0 auto;
+    font-size: .82rem;
+    padding: .4rem .65rem;
+  }
+  .tools {
+    top: auto;
+    bottom: calc(12px + env(safe-area-inset-bottom));
+    left: 12px;
+    right: 12px;
+    justify-content: center;
+  }
+  .tools button, .tools a.tools-btn {
+    font-size: .82rem;
+    padding: .4rem .7rem;
+  }
+  .hero { padding: 1.15rem 1rem; }
+  .hero h1 { font-size: 1.45rem; }
+  .hero .name { font-size: 1.15rem; }
+  .cv-section { padding: 1rem .95rem 1.1rem; }
+  details.job summary {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: .2rem;
+  }
+  .job-period { white-space: normal; font-size: .82rem; }
+}
+@media (max-width: 480px) {
+  body { font-size: 14px; }
+  .hero .c-line { word-break: break-word; }
+  .tools button, .tools a.tools-btn { flex: 1 1 auto; text-align: center; min-width: 0; }
 }
 aside {
   grid-column: 1; position: sticky; top: 0; align-self: start; padding: 1.25rem 1rem;
@@ -98,6 +157,7 @@ details.job {
 details.job summary {
   cursor: pointer; list-style: none; display: flex; justify-content: space-between; gap: 1rem; align-items: baseline;
   padding: .55rem 0; font-weight: 600;
+  overflow-wrap: anywhere;
 }
 details.job summary::-webkit-details-marker { display: none; }
 .job-period { font-weight: 500; font-size: .85rem; color: var(--muted); white-space: nowrap; }
