@@ -162,7 +162,11 @@ nav.nav a:hover, nav.nav a.active {
   .job-period { white-space: normal; }
 }
 .tools {
-  position: fixed; top: 12px; right: 12px; z-index: 50; display: flex; gap: .5rem; flex-wrap: wrap; justify-content: flex-end;
+  display: flex;
+  gap: .5rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
 }
 .tools button {
   font: inherit; cursor: pointer; border: 1px solid var(--border); border-radius: 999px;
@@ -175,6 +179,45 @@ nav.nav a:hover, nav.nav a.active {
   text-decoration: none; display: inline-block;
 }
 .tools a.tools-btn:hover { border-color: var(--accent2); }
+/* Mobile / tablet: action bar at top, in document flow */
+@media (max-width: 1099px) {
+  .tools {
+    position: static;
+    width: 100%;
+    flex-wrap: nowrap;
+    gap: .35rem;
+    padding: .55rem .65rem calc(.55rem + env(safe-area-inset-top, 0px));
+    border-bottom: 1px solid var(--border);
+    background: var(--card);
+    box-shadow: none;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+  .tools::-webkit-scrollbar { display: none; }
+  .tools button,
+  .tools a.tools-btn {
+    flex: 1 1 0;
+    min-width: 0;
+    padding: .42rem .55rem;
+    font-size: .78rem;
+    text-align: center;
+    white-space: nowrap;
+    box-shadow: none;
+  }
+  .tools-label-long { display: none; }
+}
+@media (min-width: 1100px) {
+  .tools {
+    position: fixed;
+    top: 12px;
+    right: 12px;
+    z-index: 50;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+  }
+  .tools-label-short { display: none; }
+}
 .hero {
   background: var(--card); border: 1px solid var(--border); border-radius: 16px; padding: 1.5rem 1.35rem;
   box-shadow: var(--shadow); margin-bottom: 1.5rem;
@@ -228,9 +271,9 @@ footer.page-footer { margin-top: 2rem; font-size: .85rem; color: var(--muted); t
 </head>
 <body>
 <div class="tools">
-  <button type="button" id="btn-theme" aria-label="Theme">Dark / Light</button>
+  <button type="button" id="btn-theme" aria-label="Toggle dark or light theme">Dark / Light</button>
   <a class="tools-btn" href="/David_Zaddach_CV_EN_2026.pdf?v=20260630" download="David_Zaddach_CV_EN_2026.pdf" target="_blank" rel="noopener noreferrer" aria-label="Download English CV as PDF">Download PDF</a>
-  <button type="button" id="btn-expand" aria-label="Collapse">Collapse all jobs</button>
+  <button type="button" id="btn-expand" aria-label="Collapse or expand all jobs"><span class="tools-label-short">Collapse</span><span class="tools-label-long">Collapse all jobs</span></button>
 </div>
 <div class="layout">
 <aside>
