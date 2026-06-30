@@ -1,2 +1,4 @@
-# Öffentliche URL der HTML-CV auf Netlify (eine Zeile, beginnend mit https://).
+# Öffentliche URLs der CV auf Netlify (eine Zeile pro URL).
 https://davidzaddach.netlify.app/
+https://davidzaddach.netlify.app/David_Zaddach_CV_EN_2026.pdf
+https://davidzaddach.netlify.app/cv.pdf
