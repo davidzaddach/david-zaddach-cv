@@ -8,7 +8,7 @@ python3 scripts/build_web_pdf.py
 
 Liest `public/index.html`, erzeugt `src/David_Zaddach_CV_EN_2026_web.html` und `public/David_Zaddach_CV_EN_2026_web.pdf` (Chrome/Edge headless).
 
-Nach Änderungen an `public/index.html` das Skript für die optionale Web-PDF laufen lassen. Der Download-Button auf Netlify bleibt bei der ATS-PDF.
+Nach Änderungen an `public/index.html` das Skript für die Web-PDF laufen lassen. Der Download-Button auf Netlify verweist auf die Web-PDF.
 
 ## ATS-PDF aus DOCX (macOS + Microsoft Word)
 
@@ -23,8 +23,8 @@ Schreibt `public/David_Zaddach_CV_EN_2026.pdf` aus `src/David_Zaddach_CV_EN_2026
 
 | Datei | Zweck |
 |-------|--------|
-| `public/David_Zaddach_CV_EN_2026.pdf` | ATS/Word-Version — Download auf Netlify |
-| `public/David_Zaddach_CV_EN_2026_web.pdf` | Design wie Website (optional, `/cv-web.pdf`) |
+| `public/David_Zaddach_CV_EN_2026_web.pdf` | Design-PDF — Download auf Netlify |
+| `public/David_Zaddach_CV_EN_2026.pdf` | ATS/Word-Version (`/cv-ats.pdf`) |
 
 Geplante Wiederanbindung:
 

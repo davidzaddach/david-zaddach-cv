@@ -19,7 +19,8 @@ PRINT_CSS = """
 
 :root {
   --bg: #ffffff;
-  --card: #ffffff;
+  --card: #f6f4ef;
+  --card-inner: #ffffff;
   --text: #1a1a1a;
   --muted: #5c574c;
   --accent: #7a5c1e;
@@ -41,7 +42,9 @@ html, body {
   font-size: 10.5pt;
   line-height: 1.5;
   color: var(--text);
-  background: #ffffff;
+  background: var(--bg);
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
 }
 
 main {
@@ -50,7 +53,7 @@ main {
 }
 
 .hero {
-  background: transparent;
+  background: var(--card);
   border: 1px solid var(--border);
   border-radius: 14px;
   padding: 1.15rem 1.2rem;
@@ -84,7 +87,7 @@ a.employer-link {
 }
 
 .cv-section {
-  background: transparent;
+  background: var(--card);
   border: 1px solid var(--border);
   border-radius: 12px;
   padding: 0.9rem 1rem 1rem;
@@ -96,6 +99,12 @@ a.employer-link {
 .cv-section.allow-break {
   break-inside: auto;
   page-break-inside: auto;
+}
+
+.cv-section.break-before {
+  break-before: page;
+  page-break-before: always;
+  margin-top: 0;
 }
 
 .cv-section h2 {
@@ -128,7 +137,7 @@ a.employer-link {
   border-radius: 9px;
   margin: 0.4rem 0;
   padding: 0.45rem 0.6rem 0.15rem;
-  background: transparent;
+  background: var(--card-inner);
   break-inside: avoid;
   page-break-inside: avoid;
 }
@@ -196,7 +205,7 @@ def _to_print_html(main_html: str) -> str:
     )
     html = html.replace(
         '<section id="professional-experience" class="cv-section">',
-        '<section id="professional-experience" class="cv-section allow-break">',
+        '<section id="professional-experience" class="cv-section allow-break break-before">',
     )
     html = html.replace(
         '<div class="company"><a class="employer-link" href="https://www.freenet-group.de/en"',
