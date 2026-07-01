@@ -229,6 +229,20 @@ nav.nav a:hover, nav.nav a.active {
   color: var(--accent); text-decoration: none; border-bottom: 1px solid var(--accent2);
 }
 .hero .c-line a.c-link:hover { opacity: .85; }
+.profile-headline {
+  margin: 0 0 0.65rem;
+  font-size: 0.92rem;
+  font-weight: 600;
+  line-height: 1.45;
+  color: var(--accent);
+}
+.profile-target {
+  margin: 0 0 0.65rem;
+  font-size: 0.88rem;
+  font-weight: 600;
+  line-height: 1.45;
+  color: var(--text);
+}
 .cv-section {
   background: var(--card); border: 1px solid var(--border); border-radius: 14px; padding: 1.1rem 1.2rem 1.25rem;
   margin-bottom: 1rem; box-shadow: var(--shadow);
@@ -272,13 +286,12 @@ footer.page-footer { margin-top: 2rem; font-size: .85rem; color: var(--muted); t
 <body>
 <div class="tools">
   <button type="button" id="btn-theme" aria-label="Toggle dark or light theme">Dark / Light</button>
-  <a class="tools-btn" href="/cv.pdf?v=3" download="David_Zaddach_CV_EN_2026_web.pdf" aria-label="Download English CV as PDF">Download PDF</a>
+  <a class="tools-btn" href="/cv.pdf?v=4" download="David_Zaddach_CV_EN_2026_web.pdf" aria-label="Download English CV as PDF">Download PDF</a>
   <button type="button" id="btn-expand" aria-label="Collapse or expand all jobs"><span class="tools-label-short">Collapse</span><span class="tools-label-long">Collapse all jobs</span></button>
 </div>
 <div class="layout">
 <aside>
   <nav class="nav" id="side-nav">
-    <a href="#personal-details" class="nav-a" aria-label="Personal details"><span class="nav-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M20 21a8 8 0 0 0-16 0"/><circle cx="12" cy="8" r="4"/></svg></span><span class="nav-label">Personal details</span></a>
     <a href="#profile" class="nav-a" aria-label="Profile"><span class="nav-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M10 13h4"/><path d="M10 17h4"/></svg></span><span class="nav-label">Profile</span></a>
     <a href="#skills-knowledge" class="nav-a" aria-label="Skills and knowledge"><span class="nav-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3l1.5 4.5L18 9l-4.5 1.5L12 15l-1.5-4.5L6 9l4.5-1.5L12 3z"/><path d="M5 19l1 3 1-3 3-1-3-1-1-3-1 3-3 1 3 1z"/><path d="M19 13l.8 2.2L22 16l-2.2.8L19 19l-.8-2.2L16 16l2.2-.8L19 13z"/></svg></span><span class="nav-label">Skills &amp; knowledge</span></a>
     <a href="#professional-experience" class="nav-a" aria-label="Professional experience"><span class="nav-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/></svg></span><span class="nav-label">Professional experience</span></a>
@@ -294,32 +307,23 @@ footer.page-footer { margin-top: 2rem; font-size: .85rem; color: var(--muted); t
     <div class="name">David Zaddach</div>
     <p class="c-line">Lanker Str. 40a, 13125 Berlin, Germany</p><p class="c-line">Phone: <a class="c-link" href="tel:+4917634640687">+4917634640687</a> | Email: <a class="c-link" href="mailto:david.zaddach@gmail.com">david.zaddach@gmail.com</a></p><p class="c-line">Profile: <a class="c-link" href="https://linkedin.com/in/david-zaddach" target="_blank" rel="noopener noreferrer">linkedin.com/in/david-zaddach</a></p>
   </header>
-<section id="personal-details" class="cv-section">
-<h2>Personal details</h2>
-<p class="pre">Date of birth: 26 July 1981
-Nationality: German
-Marital status: married, two children</p>
-</section>
 <section id="profile" class="cv-section">
 <h2>Profile</h2>
-<p class="txt">Senior product and technology leader in enterprise technology and digital music. Background in hands-on content and technical operations, with progression into senior product leadership. Leads technology products at BMG today: shaping the portfolio, aligning business and engineering, working with partners and vendors, and keeping delivery focused on outcomes that matter.</p>
+<p class="profile-headline">Senior Director / Head of Product (Technology) | Enterprise platforms in music, copyright &amp; data</p>
+<p class="profile-target">Target role: Chief Product Officer, VP Product or Head of Technology Products in music, media &amp; enterprise platforms</p>
+<p class="txt">Senior product and technology leader who aligns business, engineering and partners in complex rights and data environments. Background in hands-on content and technical operations, with progression into portfolio-level leadership. Focused on modernising enterprise platforms, AI-ready architecture and measurable business outcomes.</p>
 </section>
 <section id="skills-knowledge" class="cv-section">
 <h2>Skills &amp; knowledge</h2>
 <ul class="bullets">
 <li>Executive product &amp; technology leadership</li>
+<li>Portfolio strategy, prioritisation &amp; multi-year roadmaps</li>
+<li>P&amp;L ownership, budgeting &amp; vendor governance</li>
+<li>B2B platform scaling (music / copyright / data)</li>
+<li>Stakeholder &amp; board-level communication</li>
+<li>Music publishing, licensing &amp; copyright operations</li>
 <li>AI strategy and applied expertise (LLMs, agentic systems, human-in-the-loop)</li>
 <li>Agentic coding and AI-assisted software delivery</li>
-<li>UI/UX design and product experience</li>
-<li>Portfolio strategy, prioritisation &amp; multi-year roadmaps</li>
-<li>P&amp;L ownership, budgeting &amp; vendor / partner governance</li>
-<li>B2B platform &amp; services scaling (music / copyright / data)</li>
-<li>Operating model design (cross-functional alignment, agile at scale)</li>
-<li>Stakeholder &amp; board-level communication</li>
-<li>Domain depth: music publishing, licensing &amp; copyright operations</li>
-<li>Data-driven performance management &amp; KPI systems</li>
-<li>Digital transformation, platform thinking &amp; innovation</li>
-<li>Hands-on product depth where needed (content, digital delivery, technical operations)</li>
 </ul>
 </section>
 <section id="professional-experience" class="cv-section">
@@ -327,145 +331,65 @@ Marital status: married, two children</p>
 <div class="company"><a class="employer-link" href="https://www.bmg.com/en" target="_blank" rel="noopener noreferrer">BMG, The New Music Company</a>, Berlin</div>
 <details class="job" open><summary><span class="job-title">Senior Director Technology Products, Head of Product</span><span class="job-period">July 2023 to present</span></summary>
 <ul class="bullets">
-<li>End-to-end ownership of the technology product portfolio + investment/roadmap + measurable value vs enterprise priorities</li>
-<li>Brings business units, engineering and partners together to deliver at scale</li>
-<li>Shapes and governs partner/vendor ecosystem: selection, governance, performance and risk vs commercial/technical goals</li>
-<li>Full-cycle budget and resource accountability (planning, prioritisation, approvals, forecasting, in-year control)</li>
+<li>Own portfolio of 50+ technology products and ~€40M IT budget; investment, roadmap and outcomes aligned with enterprise priorities</li>
+<li>Lead 15 product owners (internal and external), 10 vendor partners and 150+ developers; align business units and engineering to deliver at scale</li>
+<li>Led decommissioning of legacy monolithic copyright and royalties platform (iMaestro); delivered sync pitching tool, microservices, headless architecture and APIs for AI transformation</li>
+<li>Full-cycle budget and vendor governance: selection, performance, risk, planning, prioritisation, approvals, forecasting and in-year control</li>
 </ul>
 </details>
 <details class="job" open><summary><span class="job-title">Director Business Services</span><span class="job-period">Jan. 2023 to July 2023</span></summary>
 <ul class="bullets">
-<li>Leadership and evolution of business services products and processes.</li>
-<li>Interface between operations, product and stakeholders.</li>
+<li>Drove evolution of business services products and operating processes; improved service delivery and operational readiness across the unit</li>
+<li>Aligned operations, product and business stakeholders on priorities and roadmap; reduced handoff friction and kept cross-functional delivery on track</li>
 </ul>
 </details>
 <details class="job" open><summary><span class="job-title">Senior Product Owner Business Services</span><span class="job-period">May 2022 to Dec. 2022</span></summary>
 <ul class="bullets">
-<li>Product ownership: requirements, backlog and prioritisation.</li>
-<li>Close collaboration with engineering and business teams.</li>
+<li>Owned business services backlog and priorities; translated requirements into a focused roadmap aligned with business outcomes</li>
+<li>Partnered with engineering and business teams to clarify scope, unblock delivery and maintain predictable release cadence</li>
 </ul>
 </details>
 <div class="company"><a class="employer-link" href="https://www.ice-copyright.com/en" target="_blank" rel="noopener noreferrer">ICE (International Copyright Enterprise) / ICE Services GmbH</a>, Germany</div>
 <details class="job" open><summary><span class="job-title">Senior Product Owner</span><span class="job-period">May 2020 to April 2022</span></summary>
 <ul class="bullets">
-<li>Product owner for all online processing systems and two Scrum teams.</li>
-<li>Built and maintained the product roadmap and product backlog.</li>
-<li>End-to-end view of <a class="employer-link" href="https://www.ice-copyright.com/en" target="_blank" rel="noopener noreferrer">ICE</a> as the online licensing back office for collecting societies and publishers.</li>
-<li>Stakeholder collaboration (business, IT, customers, shareholders).</li>
-<li>Coordination in online operations, including dispute management.</li>
+<li>Owned outcomes for all online processing systems and two Scrum teams; delivered roadmap priorities for <a class="employer-link" href="https://www.ice-copyright.com/en" target="_blank" rel="noopener noreferrer">ICE</a>'s licensing back office serving collecting societies and publishers</li>
+<li>Aligned business, IT, customer and shareholder stakeholders on backlog and releases; kept cross-functional delivery predictable at platform scale</li>
+<li>Drove online operations coordination including dispute management; improved reliability and throughput of high-volume copyright and licensing workflows</li>
+<li>Translated operational and regulatory requirements into backlog priorities; sustained continuous delivery across the online processing portfolio</li>
 </ul>
 </details>
-<details class="job" open><summary><span class="job-title">Product Owner</span><span class="job-period">Jan. 2018 to May 2020</span></summary>
+<details class="job" open><summary><span class="job-title">Earlier roles: product management and business analysis</span><span class="job-period">2015 to 2020</span></summary>
 <ul class="bullets">
-<li>Requirements, prioritisation and close collaboration with development teams.</li>
-<li>Continuous delivery within the product remit.</li>
-</ul>
-</details>
-<details class="job" open><summary><span class="job-title">Business Analyst</span><span class="job-period">Oct. 2016 to Dec. 2017</span></summary>
-<ul class="bullets">
-<li>Analysis and specification for product and platform development.</li>
-<li>Supporting teams on feasibility and functional clarity.</li>
-</ul>
-</details>
-<details class="job" open><summary><span class="job-title">Senior Product Manager</span><span class="job-period">Oct. 2015 to Sept. 2016</span></summary>
-<ul class="bullets">
-<li>Product management with a focus on online operations.</li>
-<li>Alignment of features and releases with business goals.</li>
+<li>Progressed from senior product manager and business analyst to product owner for ICE's online copyright and licensing platform.</li>
+<li>Owned requirements, specifications and backlog prioritisation for online processing systems and platform development.</li>
+<li>Partnered with engineering on continuous delivery and aligned releases with business and operational goals.</li>
 </ul>
 </details>
 <div class="company"><a class="employer-link" href="https://www.freenet-group.de/en" target="_blank" rel="noopener noreferrer">freenet digital GmbH</a> (Jesta Digital &amp; Fox Mobile Distribution), Berlin</div>
-<details class="job" open><summary><span class="job-title">Product Manager Mobile Products</span><span class="job-period">2014 to 2015</span></summary>
+<details class="job" open><summary><span class="job-title">Earlier career: product, content operations and team leadership</span><span class="job-period">2008 to 2015</span></summary>
 <ul class="bullets">
-<li>Coordinated product launches with music and games partners.</li>
-<li>Stakeholder alignment on software development; established Scrum across all backend teams.</li>
-<li>Incident management for content topics (formats, ingestion, licensing, etc.).</li>
-<li>Developed, managed and optimised KPI measurement.</li>
-<li>Designed new landing pages for retention and acquisition.</li>
-</ul>
-</details>
-<details class="job" open><summary><span class="job-title">Product Manager Content Services</span><span class="job-period">2013 to 2014</span></summary>
-<ul class="bullets">
-<li>Delivered the roadmap for content services.</li>
-<li>Cross-functional project management.</li>
-<li>Revision of the legacy content management system.</li>
-<li>Incident management for content.</li>
-<li>Product owner role within the Scrum framework.</li>
-</ul>
-</details>
-<details class="job" open><summary><span class="job-title">Technical Operations Manager &amp; Product Manager Music</span><span class="job-period">2012 to 2013</span></summary>
-<ul class="bullets">
-<li>Established a productive Scrum environment (Scrum Master).</li>
-<li>Developed and implemented product launches.</li>
-<li>Integrated full-track music as a core content category.</li>
-<li>Automated ringtone upload into the content management system.</li>
-<li>Incident management for music and ringtones.</li>
-</ul>
-</details>
-<details class="job" open><summary><span class="job-title">Technical Operations Manager &amp; Team Lead ,  Content Ingestion</span><span class="job-period">2011 to 2012</span></summary>
-<ul class="bullets">
-<li>Technical support for international partners (labels, distributors, partners).</li>
-<li>KPI tracking.</li>
-<li>Automated ringtone production.</li>
-<li>Measured implementation and performance of existing and new features.</li>
-</ul>
-</details>
-<details class="job" open><summary><span class="job-title">Team Lead Audio Production &amp; Content Ingestion</span><span class="job-period">2010 to 2011</span></summary>
-<ul class="bullets">
-<li>Simplified the production process.</li>
-<li>Created new formats for mobile devices.</li>
-<li>Improved time-to-market for media content delivery.</li>
-<li>Competitive analysis and insights for senior management.</li>
-</ul>
-</details>
-<details class="job" open><summary><span class="job-title">Team Lead Audio Production &amp; Content Upload</span><span class="job-period">2008 to 2010</span></summary>
-<ul class="bullets">
-<li>Led the audio content production and upload team (7 people).</li>
-<li>Adjusted metadata and imported licence details.</li>
-<li>Technical contact for external partners.</li>
-<li>Audio production for TV spots.</li>
+<li>Progressed from team lead for audio production and content ingestion to product manager for mobile products and content services.</li>
+<li>Built content operations, CMS workflows and partner onboarding; introduced Scrum and scaled music as a core mobile content category.</li>
+<li>Owned roadmaps, KPI tracking and launch delivery across content ingestion, licensing, metadata and mobile product releases.</li>
 </ul>
 </details>
 </section>
 <section id="further-experience" class="cv-section">
 <h2>Further experience</h2>
-<details class="job" open><summary><span class="job-title">Music production, Berlin</span><span class="job-period">2000 to present</span></summary>
+<details class="job" open><summary><span class="job-title">Music production &amp; independent label</span><span class="job-period">2000 to present</span></summary>
 <ul class="bullets">
-<li>Ongoing music production; selected artists and projects include <a class="employer-link" href="https://instagram.com/knallersoundsystem" target="_blank" rel="noopener noreferrer">Knaller Soundsystem</a>, <a class="employer-link" href="https://www.instagram.com/davidmainmusic/" target="_blank" rel="noopener noreferrer">David Main</a>, Mic Profz, Lucry, PA Sports, among others.</li>
+<li>Ongoing music production; selected projects with artists such as <a class="employer-link" href="https://instagram.com/knallersoundsystem" target="_blank" rel="noopener noreferrer">Knaller Soundsystem</a> and <a class="employer-link" href="https://www.instagram.com/davidmainmusic/" target="_blank" rel="noopener noreferrer">David Main</a>.</li>
+<li>Co-founded and managed independent label 24-7 Records (2003 to 2005).</li>
 </ul>
 </details>
-<details class="job" open><summary><span class="job-title"><a class="employer-link" href="https://www.universalmusic.com/" target="_blank" rel="noopener noreferrer">Universal Music</a>, Berlin</span><span class="job-period">2007 to 2008</span></summary>
+<details class="job" open><summary><span class="job-title">Internships and early industry roles</span><span class="job-period">1999 to 2008</span></summary>
 <ul class="bullets">
-<li>Internship in product coordination / operations.</li>
-</ul>
-</details>
-<details class="job" open><summary><span class="job-title">Studio for Electroacoustic Music ,  Academy of Arts, Berlin</span><span class="job-period">2006</span></summary>
-<ul class="bullets">
-<li>Project work in marketing &amp; PR (<a class="employer-link" href="https://www.adk.de/en" target="_blank" rel="noopener noreferrer">Akademie der Künste</a>).</li>
-</ul>
-</details>
-<details class="job" open><summary><span class="job-title">Short film &quot;Wasser &amp; Papayas&quot; ,  sound engineer</span><span class="job-period">2006</span></summary>
-<ul class="bullets">
-<li>Sound recording / engineering for short film.</li>
-</ul>
-</details>
-<details class="job" open><summary><span class="job-title">24-7 Records Germany ,  Co-founder</span><span class="job-period">2003 to 2005</span></summary>
-<ul class="bullets">
-<li>Co-founded and managed independent label 24-7 Records.</li>
-</ul>
-</details>
-<details class="job" open><summary><span class="job-title">Rianoni Music, Berlin</span><span class="job-period">2005</span></summary>
-<ul class="bullets">
-<li>Project work in marketing &amp; PR (Rianoni Music).</li>
-</ul>
-</details>
-<details class="job" open><summary><span class="job-title">Moneypenny, Paris</span><span class="job-period">2002</span></summary>
-<ul class="bullets">
-<li>Music production (internship).</li>
-</ul>
-</details>
-<details class="job" open><summary><span class="job-title">DResearch Digital Media Systems GmbH ,  assistant</span><span class="job-period">1999 to 2001</span></summary>
-<ul class="bullets">
-<li>Assistant on projects and administration.</li>
+<li><a class="employer-link" href="https://www.universalmusic.com/" target="_blank" rel="noopener noreferrer">Universal Music</a>, Berlin — internship in product coordination / operations (2007 to 2008).</li>
+<li>Project work in marketing &amp; PR at <a class="employer-link" href="https://www.adk.de/en" target="_blank" rel="noopener noreferrer">Akademie der Künste</a>, Studio for Electroacoustic Music, Berlin (2006).</li>
+<li>Sound recording / engineering for short film &quot;Wasser &amp; Papayas&quot; (2006).</li>
+<li>Project work in marketing &amp; PR at <a class="employer-link" href="https://rianoni.de/" target="_blank" rel="noopener noreferrer">Rianoni Music</a>, Berlin (2005).</li>
+<li><a class="employer-link" href="https://www.moneypennyprod.fr/" target="_blank" rel="noopener noreferrer">Moneypenny</a>, Paris — music production internship (2002).</li>
+<li><a class="employer-link" href="https://www.dresearch.de/" target="_blank" rel="noopener noreferrer">DResearch Digital Media Systems GmbH</a> — assistant on projects and administration (1999 to 2001).</li>
 </ul>
 </details>
 </section>
@@ -477,11 +401,6 @@ Marital status: married, two children</p>
 <li>Master thesis (German title): Die Nutzung der Zensur aus künstlerischen und ökonomischen Interessen in der Popularmusik (grade: very good).</li>
 <li>Major: musicology (2002 to 2007).</li>
 <li>Minors: economics, communication science.</li>
-</ul>
-</details>
-<details class="job" open><summary><span class="job-title">Abitur (university entrance diploma) ,  4. Gymnasium Descartes, Berlin</span><span class="job-period">1994 to 2001</span></summary>
-<ul class="bullets">
-<li>German university entrance qualification (Abitur).</li>
 </ul>
 </details>
 </section>
@@ -505,7 +424,7 @@ Marital status: married, two children</p>
   <footer class="page-footer">Berlin, 12 May 2026</footer>
 </main>
 </div>
-<script type="application/json" id="cv-raw">{"doc_title": "Curriculum Vitae","name": "David Zaddach","contact": ["Lanker Str. 40a, 13125 Berlin, Germany","Phone: +4917634640687 | Email: david.zaddach@gmail.com","Profile: linkedin.com/in/david-zaddach"],"sections": [{"id": "personal-details","title": "Personal details","kind": "generic","blocks": [{"type": "pre","text": "Date of birth: 26 July 1981\nNationality: German\nMarital status: married, two children"}]},{"id": "profile","title": "Profile","kind": "generic","blocks": [{"type": "p","text": "Senior product and technology leader in enterprise technology and digital music. Background in hands-on content and technical operations, with progression into senior product leadership. Leads technology products at BMG today: shaping the portfolio, aligning business and engineering, working with partners and vendors, and keeping delivery focused on outcomes that matter."}]},{"id": "skills-knowledge","title": "Skills & knowledge","kind": "generic","blocks": [{"type": "bullets","items": ["Executive product & technology leadership","AI strategy and applied expertise (LLMs, agentic systems, human-in-the-loop)","Agentic coding and AI-assisted software delivery","UI/UX design and product experience","Portfolio strategy, prioritisation & multi-year roadmaps","P&L ownership, budgeting & vendor / partner governance","B2B platform & services scaling (music / copyright / data)","Operating model design (cross-functional alignment, agile at scale)","Stakeholder & board-level communication","Domain depth: music publishing, licensing & copyright operations","Data-driven performance management & KPI systems","Digital transformation, platform thinking & innovation","Hands-on product depth where needed (content, digital delivery, technical operations)"]}]},{"id": "professional-experience","title": "Professional experience","kind": "generic","blocks": [{"type": "company","name": "BMG, The New Music Company, Berlin"},{"type": "role","title": "Senior Director Technology Products, Head of Product","period": "July 2023 to present"},{"type": "bullets","items": ["End-to-end ownership of the technology product portfolio + investment/roadmap + measurable value vs enterprise priorities","Brings business units, engineering and partners together to deliver at scale","Shapes and governs partner/vendor ecosystem: selection, governance, performance and risk vs commercial/technical goals","Full-cycle budget and resource accountability (planning, prioritisation, approvals, forecasting, in-year control)"]},{"type": "role","title": "Director Business Services","period": "Jan. 2023 to July 2023"},{"type": "bullets","items": ["Leadership and evolution of business services products and processes.","Interface between operations, product and stakeholders."]},{"type": "role","title": "Senior Product Owner Business Services","period": "May 2022 to Dec. 2022"},{"type": "bullets","items": ["Product ownership: requirements, backlog and prioritisation.","Close collaboration with engineering and business teams."]},{"type": "company","name": "ICE (International Copyright Enterprise) / ICE Services GmbH, Germany"},{"type": "role","title": "Senior Product Owner","period": "May 2020 to April 2022"},{"type": "bullets","items": ["Product owner for all online processing systems and two Scrum teams.","Built and maintained the product roadmap and product backlog.","End-to-end view of ICE as the online licensing back office for collecting societies and publishers.","Stakeholder collaboration (business, IT, customers, shareholders).","Coordination in online operations, including dispute management."]},{"type": "role","title": "Product Owner","period": "Jan. 2018 to May 2020"},{"type": "bullets","items": ["Requirements, prioritisation and close collaboration with development teams.","Continuous delivery within the product remit."]},{"type": "role","title": "Business Analyst","period": "Oct. 2016 to Dec. 2017"},{"type": "bullets","items": ["Analysis and specification for product and platform development.","Supporting teams on feasibility and functional clarity."]},{"type": "role","title": "Senior Product Manager","period": "Oct. 2015 to Sept. 2016"},{"type": "bullets","items": ["Product management with a focus on online operations.","Alignment of features and releases with business goals."]},{"type": "company","name": "freenet digital GmbH (Jesta Digital & Fox Mobile Distribution), Berlin"},{"type": "role","title": "Product Manager Mobile Products","period": "2014 to 2015"},{"type": "bullets","items": ["Coordinated product launches with music and games partners.","Stakeholder alignment on software development; established Scrum across all backend teams.","Incident management for content topics (formats, ingestion, licensing, etc.).","Developed, managed and optimised KPI measurement.","Designed new landing pages for retention and acquisition."]},{"type": "role","title": "Product Manager Content Services","period": "2013 to 2014"},{"type": "bullets","items": ["Delivered the roadmap for content services.","Cross-functional project management.","Revision of the legacy content management system.","Incident management for content.","Product owner role within the Scrum framework."]},{"type": "role","title": "Technical Operations Manager & Product Manager Music","period": "2012 to 2013"},{"type": "bullets","items": ["Established a productive Scrum environment (Scrum Master).","Developed and implemented product launches.","Integrated full-track music as a core content category.","Automated ringtone upload into the content management system.","Incident management for music and ringtones."]},{"type": "role","title": "Technical Operations Manager & Team Lead ,  Content Ingestion","period": "2011 to 2012"},{"type": "bullets","items": ["Technical support for international partners (labels, distributors, partners).","KPI tracking.","Automated ringtone production.","Measured implementation and performance of existing and new features."]},{"type": "role","title": "Team Lead Audio Production & Content Ingestion","period": "2010 to 2011"},{"type": "bullets","items": ["Simplified the production process.","Created new formats for mobile devices.","Improved time-to-market for media content delivery.","Competitive analysis and insights for senior management."]},{"type": "role","title": "Team Lead Audio Production & Content Upload","period": "2008 to 2010"},{"type": "bullets","items": ["Led the audio content production and upload team (7 people).","Adjusted metadata and imported licence details.","Technical contact for external partners.","Audio production for TV spots."]}]},{"id": "further-experience","title": "Further experience","kind": "generic","blocks": [{"type": "role","title": "Music production, Berlin","period": "2000 to present"},{"type": "bullets","items": ["Ongoing music production; selected artists and projects include Knaller Soundsystem (instagram.com/knallersoundsystem), David Main (instagram.com/davidmainmusic), Mic Profz, Lucry, PA Sports, among others."]},{"type": "role","title": "Universal Music, Berlin","period": "2007 to 2008"},{"type": "bullets","items": ["Internship in product coordination / operations."]},{"type": "role","title": "Studio for Electroacoustic Music ,  Academy of Arts, Berlin","period": "2006"},{"type": "bullets","items": ["Project work in marketing & PR (Akademie der Künste)."]},{"type": "role","title": "Short film \"Wasser & Papayas\" ,  sound engineer","period": "2006"},{"type": "bullets","items": ["Sound recording / engineering for short film."]},{"type": "role","title": "24-7 Records Germany ,  Co-founder","period": "2003 to 2005"},{"type": "bullets","items": ["Co-founded and managed independent label 24-7 Records."]},{"type": "role","title": "Rianoni Music, Berlin","period": "2005"},{"type": "bullets","items": ["Project work in marketing & PR (Rianoni Music)."]},{"type": "role","title": "Moneypenny, Paris","period": "2002"},{"type": "bullets","items": ["Music production (internship)."]},{"type": "role","title": "DResearch Digital Media Systems GmbH ,  assistant","period": "1999 to 2001"},{"type": "bullets","items": ["Assistant on projects and administration."]}]},{"id": "education","title": "Education","kind": "generic","blocks": [{"type": "role","title": "Magister Artium ,  Technische Universität Berlin","period": "Graduated 2007"},{"type": "bullets","items": ["Overall grade: very good.","Master thesis (German title): Die Nutzung der Zensur aus künstlerischen und ökonomischen Interessen in der Popularmusik (grade: very good).","Major: musicology (2002 to 2007).","Minors: economics, communication science."]},{"type": "role","title": "Abitur (university entrance diploma) ,  4. Gymnasium Descartes, Berlin","period": "1994 to 2001"},{"type": "bullets","items": ["German university entrance qualification (Abitur)."]}]},{"id": "certifications-selection","title": "Certifications (selection)","kind": "generic","blocks": [{"type": "bullets","items": ["Bertelsmann IT Circle (3 years project for IT experts within Bertelsmann)","ITIL (Information Technology Infrastructure Library) certification","Various Product Management and scrum trainings"]}]},{"id": "languages","title": "Languages","kind": "generic","blocks": [{"type": "bullets","items": ["German: native","English: fluent","French: basic","Russian: basic"]}]}],"footer": "Berlin, 12 May 2026"}</script>
+<script type="application/json" id="cv-raw">{"doc_title":"Curriculum Vitae","name":"David Zaddach","contact":["Lanker Str. 40a, 13125 Berlin, Germany","Phone: +4917634640687 | Email: david.zaddach@gmail.com","Profile: linkedin.com/in/david-zaddach"],"sections":[{"id":"profile","title":"Profile","kind":"generic","blocks":[{"type":"p","text":"Senior Director / Head of Product (Technology) | Enterprise platforms in music, copyright & data"},{"type":"p","text":"Target role: Chief Product Officer, VP Product or Head of Technology Products in music, media & enterprise platforms"},{"type":"p","text":"Senior product and technology leader who aligns business, engineering and partners in complex rights and data environments. Background in hands-on content and technical operations, with progression into portfolio-level leadership. Focused on modernising enterprise platforms, AI-ready architecture and measurable business outcomes."}]},{"id":"skills-knowledge","title":"Skills & knowledge","kind":"generic","blocks":[{"type":"bullets","items":["Executive product & technology leadership","Portfolio strategy, prioritisation & multi-year roadmaps","P&L ownership, budgeting & vendor governance","B2B platform scaling (music / copyright / data)","Stakeholder & board-level communication","Music publishing, licensing & copyright operations","AI strategy and applied expertise (LLMs, agentic systems, human-in-the-loop)","Agentic coding and AI-assisted software delivery"]}]},{"id":"professional-experience","title":"Professional experience","kind":"generic","blocks":[{"type":"company","name":"BMG, The New Music Company, Berlin"},{"type":"role","title":"Senior Director Technology Products, Head of Product","period":"July 2023 to present"},{"type":"bullets","items":["Own portfolio of 50+ technology products and ~€40M IT budget; investment, roadmap and outcomes aligned with enterprise priorities","Lead 15 product owners (internal and external), 10 vendor partners and 150+ developers; align business units and engineering to deliver at scale","Led decommissioning of legacy monolithic copyright and royalties platform (iMaestro); delivered sync pitching tool, microservices, headless architecture and APIs for AI transformation","Full-cycle budget and vendor governance: selection, performance, risk, planning, prioritisation, approvals, forecasting and in-year control"]},{"type":"role","title":"Director Business Services","period":"Jan. 2023 to July 2023"},{"type":"bullets","items":["Drove evolution of business services products and operating processes; improved service delivery and operational readiness across the unit","Aligned operations, product and business stakeholders on priorities and roadmap; reduced handoff friction and kept cross-functional delivery on track"]},{"type":"role","title":"Senior Product Owner Business Services","period":"May 2022 to Dec. 2022"},{"type":"bullets","items":["Owned business services backlog and priorities; translated requirements into a focused roadmap aligned with business outcomes","Partnered with engineering and business teams to clarify scope, unblock delivery and maintain predictable release cadence"]},{"type":"company","name":"ICE (International Copyright Enterprise) / ICE Services GmbH, Germany"},{"type":"role","title":"Senior Product Owner","period":"May 2020 to April 2022"},{"type":"bullets","items":["Owned outcomes for all online processing systems and two Scrum teams; delivered roadmap priorities for ICE's licensing back office serving collecting societies and publishers","Aligned business, IT, customer and shareholder stakeholders on backlog and releases; kept cross-functional delivery predictable at platform scale","Drove online operations coordination including dispute management; improved reliability and throughput of high-volume copyright and licensing workflows","Translated operational and regulatory requirements into backlog priorities; sustained continuous delivery across the online processing portfolio"]},{"type":"role","title":"Earlier roles: product management and business analysis","period":"2015 to 2020"},{"type":"bullets","items":["Progressed from senior product manager and business analyst to product owner for ICE's online copyright and licensing platform.","Owned requirements, specifications and backlog prioritisation for online processing systems and platform development.","Partnered with engineering on continuous delivery and aligned releases with business and operational goals."]},{"type":"company","name":"freenet digital GmbH (Jesta Digital & Fox Mobile Distribution), Berlin"},{"type":"role","title":"Earlier career: product, content operations and team leadership","period":"2008 to 2015"},{"type":"bullets","items":["Progressed from team lead for audio production and content ingestion to product manager for mobile products and content services.","Built content operations, CMS workflows and partner onboarding; introduced Scrum and scaled music as a core mobile content category.","Owned roadmaps, KPI tracking and launch delivery across content ingestion, licensing, metadata and mobile product releases."]}]},{"id":"further-experience","title":"Further experience","kind":"generic","blocks":[{"type":"role","title":"Music production & independent label","period":"2000 to present"},{"type":"bullets","items":["Ongoing music production; selected projects with artists such as Knaller Soundsystem and David Main.","Co-founded and managed independent label 24-7 Records (2003 to 2005)."]},{"type":"role","title":"Internships and early industry roles","period":"1999 to 2008"},{"type":"bullets","items":["Universal Music, Berlin — internship in product coordination / operations (2007 to 2008).","Project work in marketing & PR at Akademie der Künste, Studio for Electroacoustic Music, Berlin (2006).","Sound recording / engineering for short film \"Wasser & Papayas\" (2006).","Project work in marketing & PR at Rianoni Music, Berlin (2005).","Moneypenny, Paris — music production internship (2002).","DResearch Digital Media Systems GmbH — assistant on projects and administration (1999 to 2001)."]}]},{"id":"education","title":"Education","kind":"generic","blocks":[{"type":"role","title":"Magister Artium ,  Technische Universität Berlin","period":"Graduated 2007"},{"type":"bullets","items":["Overall grade: very good.","Master thesis (German title): Die Nutzung der Zensur aus künstlerischen und ökonomischen Interessen in der Popularmusik (grade: very good).","Major: musicology (2002 to 2007).","Minors: economics, communication science."]}]},{"id":"certifications-selection","title":"Certifications (selection)","kind":"generic","blocks":[{"type":"bullets","items":["Bertelsmann IT Circle (3 years project for IT experts within Bertelsmann)","ITIL (Information Technology Infrastructure Library) certification","Various Product Management and scrum trainings"]}]},{"id":"languages","title":"Languages","kind":"generic","blocks":[{"type":"bullets","items":["German: native","English: fluent","French: basic","Russian: basic"]}]}],"footer":"Berlin, 12 May 2026"}</script>
 <script>
 (function () {
   const root = document.documentElement;

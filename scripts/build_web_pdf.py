@@ -117,6 +117,22 @@ a.employer-link {
   padding-bottom: 0.35rem;
 }
 
+.profile-headline {
+  margin: 0 0 0.55rem;
+  font-size: 0.88rem;
+  font-weight: 600;
+  line-height: 1.45;
+  color: var(--accent);
+}
+
+.profile-target {
+  margin: 0 0 0.55rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  line-height: 1.45;
+  color: var(--text);
+}
+
 .company {
   font-weight: 700;
   font-size: 0.94rem;

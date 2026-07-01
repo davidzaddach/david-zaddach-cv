@@ -23,9 +23,9 @@ Privates Repository für Lebenslauf/CV (DE/EN), Build-Artefakte und die öffentl
 
 ## Workflow (aktuell)
 
-1. Inhalt in `src/David_Zaddach_CV_EN_2026.docx` bearbeiten
-2. Deutsche Version und HTML/PDF nach Bedarf aktualisieren
-3. `public/index.html` pflegen → `python3 scripts/build_web_pdf.py` für Web-PDF; ATS-PDF optional aus DOCX
+1. Inhalt in `public/index.html` pflegen (Quelle)
+2. `python3 scripts/sync_ats_from_web.py` → ATS-HTML + DOCX
+3. `python3 scripts/build_web_pdf.py` und `python3 scripts/build_pdf.py`
 4. Push → Netlify baut aus `public/`
 
 ## Hinweis

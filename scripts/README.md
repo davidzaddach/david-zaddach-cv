@@ -1,5 +1,16 @@
 # Build-Skripte
 
+## Inhalt synchron halten (Web → ATS)
+
+```bash
+# 1. Inhalt in public/index.html pflegen
+python3 scripts/sync_ats_from_web.py   # → src HTML + DOCX-Bullet-Fix
+python3 scripts/build_web_pdf.py       # → Web-PDF
+python3 scripts/build_pdf.py           # → ATS-PDF (Word, macOS)
+```
+
+`sync_ats_from_web.py` erzeugt `src/David_Zaddach_CV_EN_2026.html` aus der Web-CV (eine Spalte, Standard-Überschriften, ATS-saubere Bullets).
+
 ## Web-PDF (Design wie Netlify-Seite)
 
 ```bash
