@@ -2,10 +2,22 @@
   publish = "public"
 
 [[headers]]
-  for = "/*.pdf"
+  for = "/David_Zaddach_CV_EN_2026_web.pdf"
+  [headers.values]
+    Cache-Control = "public, max-age=0, must-revalidate"
+    Content-Disposition = "attachment; filename=\"David_Zaddach_CV_EN_2026_web.pdf\""
+
+[[headers]]
+  for = "/David_Zaddach_CV_EN_2026.pdf"
   [headers.values]
     Cache-Control = "public, max-age=0, must-revalidate"
     Content-Disposition = "attachment; filename=\"David_Zaddach_CV_EN_2026.pdf\""
+
+[[headers]]
+  for = "/cv.pdf"
+  [headers.values]
+    Cache-Control = "public, max-age=0, must-revalidate"
+    Content-Disposition = "attachment; filename=\"David_Zaddach_CV_EN_2026_web.pdf\""
 
 [[redirects]]
   from = "/cv.pdf"
