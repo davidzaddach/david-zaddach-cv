@@ -1,19 +1,34 @@
 # Build-Skripte
 
-## PDF aus DOCX (macOS + Microsoft Word)
+## Web-PDF (Design wie Netlify-Seite)
+
+```bash
+python3 scripts/build_web_pdf.py
+```
+
+Liest `public/index.html`, erzeugt `src/David_Zaddach_CV_EN_2026_web.html` und `public/David_Zaddach_CV_EN_2026_web.pdf` (Chrome/Edge headless).
+
+Nach Änderungen an `public/index.html` das Skript für die optionale Web-PDF laufen lassen. Der Download-Button auf Netlify bleibt bei der ATS-PDF.
+
+## ATS-PDF aus DOCX (macOS + Microsoft Word)
 
 ```bash
 python3 -m pip install --user docx2pdf
 python3 scripts/build_pdf.py
 ```
 
-Schreibt `public/David_Zaddach_CV_EN_2026.pdf` aus `src/David_Zaddach_CV_EN_2026.docx`.
+Schreibt `public/David_Zaddach_CV_EN_2026.pdf` aus `src/David_Zaddach_CV_EN_2026.docx` (einfaches Layout für Bewerbungsportale).
 
-Die früheren Generatoren (`generate_modern_interactive_cv.py`, `generate_cv_docx.py`, …) lagen in `~/Downloads` und sind nicht mehr auf dem Rechner.
+## Dateien
+
+| Datei | Zweck |
+|-------|--------|
+| `public/David_Zaddach_CV_EN_2026.pdf` | ATS/Word-Version — Download auf Netlify |
+| `public/David_Zaddach_CV_EN_2026_web.pdf` | Design wie Website (optional, `/cv-web.pdf`) |
 
 Geplante Wiederanbindung:
 
 - EN DOCX → `public/index.html` (interaktive Version)
 - EN DOCX → DE DOCX (Spiegelung)
 
-Bis dahin: Quellen in `src/` bearbeiten, PDF per Skript erzeugen, `public/index.html` bei Bedarf manuell synchron halten.
+Bis dahin: Inhalt in `public/index.html` pflegen, Web-PDF per Skript bauen, ATS-PDF aus DOCX bei Bedarf.

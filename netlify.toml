@@ -11,3 +11,8 @@
   from = "/cv.pdf"
   to = "/David_Zaddach_CV_EN_2026.pdf"
   status = 200
+
+[[redirects]]
+  from = "/cv-web.pdf"
+  to = "/David_Zaddach_CV_EN_2026_web.pdf"
+  status = 200

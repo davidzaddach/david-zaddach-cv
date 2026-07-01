@@ -9,7 +9,7 @@ Privates Repository für Lebenslauf/CV (DE/EN), Build-Artefakte und die öffentl
 | Ordner | Inhalt |
 |--------|--------|
 | `src/` | Quellen: englische DOCX (Source of Truth), deutsche DOCX, klassisches HTML |
-| `public/` | Netlify-Deploy: interaktive `index.html` + PDF-Download |
+| `public/` | Netlify-Deploy: interaktive `index.html` + Web-PDF + ATS-PDF |
 | `archive/` | Referenz (ältere Bewerbung 2021) |
 | `scripts/` | Python-Generatoren (später wieder anbinden) |
 
@@ -25,7 +25,7 @@ Privates Repository für Lebenslauf/CV (DE/EN), Build-Artefakte und die öffentl
 
 1. Inhalt in `src/David_Zaddach_CV_EN_2026.docx` bearbeiten
 2. Deutsche Version und HTML/PDF nach Bedarf aktualisieren
-3. `public/index.html` und `public/David_Zaddach_CV_EN_2026.pdf` synchron halten
+3. `public/index.html` pflegen → `python3 scripts/build_web_pdf.py` für Web-PDF; ATS-PDF optional aus DOCX
 4. Push → Netlify baut aus `public/`
 
 ## Hinweis
