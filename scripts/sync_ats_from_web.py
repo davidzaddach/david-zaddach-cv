@@ -146,18 +146,51 @@ def _wrap_html(body: str) -> str:
 """
 
 
-def _sync_docx_bullet_fix() -> None:
+def _sync_docx_fixes() -> None:
     from docx import Document
+    from docx.shared import RGBColor
 
     if not DOCX.is_file():
         raise SystemExit(f"Missing source: {DOCX}")
 
+    section_headings = {
+        "Profile",
+        "Skills & knowledge",
+        "Professional experience",
+        "Further experience",
+        "Education",
+        "Certifications (selection)",
+        "Languages",
+    }
+    accent = RGBColor(0x5F, 0x52, 0x26)
+
     doc = Document(str(DOCX))
     changed = 0
     for paragraph in doc.paragraphs:
+        text = paragraph.text.strip()
+        if text in section_headings:
+            paragraph.text = text
+            run = paragraph.runs[0]
+            run.bold = True
+            run.font.color.rgb = accent
+            changed += 1
         if "technology product portfolio" in paragraph.text and "+" in paragraph.text:
             paragraph.text = BMG_BULLET
             changed += 1
+        if paragraph.text.strip().startswith("Senior Product Owner Business Services"):
+            if not paragraph.paragraph_format.page_break_before:
+                paragraph.paragraph_format.page_break_before = True
+                changed += 1
+        if paragraph.text.strip().startswith("Internships and early industry roles"):
+            if not paragraph.paragraph_format.page_break_before:
+                paragraph.paragraph_format.page_break_before = True
+                changed += 1
+            # Remove duplicate inline page breaks (page_break_before is enough).
+            w_ns = "{http://schemas.openxmlformats.org/wordprocessingml/2006/main}"
+            for br in list(paragraph._element.findall(f".//{w_ns}br")):
+                if br.get(f"{w_ns}type") == "page":
+                    br.getparent().remove(br)
+                    changed += 1
     doc.save(str(DOCX))
     print(f"Updated DOCX paragraphs: {changed}")
 
@@ -173,7 +206,7 @@ def main() -> None:
 
     ATS_HTML.write_text(_wrap_html(_convert_main(main)), encoding="utf-8")
     print(f"Wrote {ATS_HTML}")
-    _sync_docx_bullet_fix()
+    _sync_docx_fixes()
 
 
 if __name__ == "__main__":

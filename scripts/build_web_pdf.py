@@ -58,13 +58,15 @@ main {
   border-radius: 14px;
   padding: 1.15rem 1.2rem;
   margin-bottom: 0.85rem;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
 }
 
 .hero h1 {
   margin: 0 0 0.3rem;
   font-size: 1.55rem;
   letter-spacing: -0.02em;
-  color: var(--accent);
+  color: #7a5c1e;
 }
 
 .hero .name {
@@ -81,7 +83,7 @@ main {
 
 .hero .c-line a.c-link,
 a.employer-link {
-  color: var(--accent);
+  color: #7a5c1e;
   text-decoration: none;
   border-bottom: 1px solid var(--accent2);
 }
@@ -94,11 +96,21 @@ a.employer-link {
   margin-bottom: 0.75rem;
   break-inside: avoid;
   page-break-inside: avoid;
+  overflow: hidden;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
 }
 
 .cv-section.allow-break {
   break-inside: auto;
   page-break-inside: auto;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+}
+
+.cv-section.avoid-break-before {
+  break-before: avoid;
+  page-break-before: avoid;
 }
 
 .cv-section.break-before {
@@ -112,9 +124,11 @@ a.employer-link {
   font-size: 0.95rem;
   text-transform: uppercase;
   letter-spacing: 0.08em;
-  color: var(--accent);
+  color: #7a5c1e;
   border-bottom: 1px solid var(--border);
   padding-bottom: 0.35rem;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
 }
 
 .profile-headline {
@@ -122,7 +136,7 @@ a.employer-link {
   font-size: 0.88rem;
   font-weight: 600;
   line-height: 1.45;
-  color: var(--accent);
+  color: #7a5c1e;
 }
 
 .profile-target {
@@ -154,6 +168,27 @@ a.employer-link {
   margin: 0.4rem 0;
   padding: 0.45rem 0.6rem 0.15rem;
   background: var(--card-inner);
+  break-inside: avoid;
+  page-break-inside: avoid;
+  overflow: hidden;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+}
+
+.cv-section.allow-break .job {
+  break-inside: auto;
+  page-break-inside: auto;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+}
+
+.job.break-before {
+  break-before: page;
+  page-break-before: always;
+  margin-top: 0;
+}
+
+.job.no-split {
   break-inside: avoid;
   page-break-inside: avoid;
 }
@@ -194,8 +229,41 @@ a.employer-link {
 }
 
 footer.page-footer {
-  margin-top: 1rem;
-  font-size: 0.82rem;
+  margin-top: 0.25rem;
+  font-size: 0.78rem;
+  color: var(--muted);
+  text-align: center;
+  break-before: avoid;
+  page-break-before: avoid;
+}
+
+#education,
+#certifications-selection,
+#languages {
+  padding: 0.65rem 0.85rem 0.7rem;
+  margin-bottom: 0.4rem;
+}
+
+#education h2,
+#certifications-selection h2,
+#languages h2 {
+  margin-bottom: 0.4rem;
+  padding-bottom: 0.2rem;
+}
+
+#education .job {
+  margin: 0.15rem 0;
+  padding: 0.25rem 0.45rem 0.05rem;
+}
+
+#certifications-selection .bullets,
+#languages .bullets {
+  margin-bottom: 0.2rem;
+}
+
+#languages .page-footer {
+  margin: 0.35rem 0 0;
+  font-size: 0.78rem;
   color: var(--muted);
   text-align: center;
 }
@@ -220,12 +288,45 @@ def _to_print_html(main_html: str) -> str:
         flags=re.DOTALL,
     )
     html = html.replace(
-        '<section id="professional-experience" class="cv-section">',
-        '<section id="professional-experience" class="cv-section allow-break break-before">',
+        '<section id="profile" class="cv-section">',
+        '<section id="profile" class="cv-section allow-break">',
     )
     html = html.replace(
-        '<div class="company"><a class="employer-link" href="https://www.freenet-group.de/en"',
-        '<div class="company break-before"><a class="employer-link" href="https://www.freenet-group.de/en"',
+        '<section id="skills-knowledge" class="cv-section">',
+        '<section id="skills-knowledge" class="cv-section allow-break">',
+    )
+    html = html.replace(
+        '<section id="professional-experience" class="cv-section">',
+        '<section id="professional-experience" class="cv-section allow-break avoid-break-before">',
+    )
+    html = html.replace(
+        '<section id="further-experience" class="cv-section">',
+        '<section id="further-experience" class="cv-section allow-break">',
+    )
+    html = html.replace(
+        '<section id="education" class="cv-section">',
+        '<section id="education" class="cv-section allow-break">',
+    )
+    html = html.replace(
+        '<section id="certifications-selection" class="cv-section">',
+        '<section id="certifications-selection" class="cv-section allow-break">',
+    )
+    html = html.replace(
+        '<section id="languages" class="cv-section">',
+        '<section id="languages" class="cv-section allow-break avoid-break-before">',
+    )
+    # Web PDF only: omit French to keep Languages on page 3 (3-page layout).
+    html = re.sub(r"\s*<li>French: basic</li>", "", html)
+    # Keep footer on the same page as Languages.
+    html = re.sub(
+        r'(<section id="languages" class="cv-section allow-break avoid-break-before">.*?</ul>)\s*</section>\s*<footer class="page-footer">([^<]*)</footer>',
+        r'\1<p class="page-footer">\2</p></section>',
+        html,
+        flags=re.DOTALL,
+    )
+    html = html.replace(
+        '<div class="job"><div class="job-header"><span class="job-title">Internships and early industry roles',
+        '<div class="job no-split"><div class="job-header"><span class="job-title">Internships and early industry roles',
     )
     return html
 
