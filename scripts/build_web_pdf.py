@@ -1,18 +1,18 @@
 #!/usr/bin/env python3
-"""Build public/David_Zaddach_CV_EN_2026_web.pdf from public/index.html (web design, print layout)."""
+"""Build web-styled CV PDFs from public/index.html (print layout)."""
 
 from __future__ import annotations
 
+import argparse
 import re
 import shutil
 import subprocess
-import sys
+from collections.abc import Callable
+from dataclasses import dataclass
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 INDEX = ROOT / "public" / "index.html"
-HTML_OUT = ROOT / "src" / "David_Zaddach_CV_EN_2026_web.html"
-PDF_OUT = ROOT / "public" / "David_Zaddach_CV_EN_2026_web.pdf"
 
 PRINT_CSS = """
 @import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400..700;1,9..40,400..700&display=swap');
@@ -138,14 +138,28 @@ a.employer-link {
   line-height: 1.45;
   color: #7a5c1e;
 }
-
-.profile-target {
-  margin: 0 0 0.55rem;
-  font-size: 0.85rem;
-  font-weight: 600;
-  line-height: 1.45;
-  color: var(--text);
+.hero .profile-headline {
+  margin: 0 0 0.75rem;
+  font-size: 0.92rem;
+  color: #7a5c1e;
 }
+.expertise-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .35rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.expertise-tags li {
+  font-size: .78rem;
+  padding: .22rem .5rem;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: var(--card-inner);
+  color: var(--muted);
+}
+.bullet-label { font-weight: 600; color: var(--text); }
 
 .company {
   font-weight: 700;
@@ -269,12 +283,80 @@ footer.page-footer {
 }
 """
 
+SKILLS_BLOCK = """<ul class="bullets">
+<li>Executive product &amp; technology leadership</li>
+<li>Portfolio strategy, prioritisation &amp; multi-year roadmaps</li>
+<li>P&amp;L ownership, budgeting &amp; vendor governance</li>
+<li>B2B platform scaling (music / copyright / data)</li>
+<li>Stakeholder &amp; board-level communication</li>
+<li>Music publishing, licensing &amp; copyright operations</li>
+<li>AI strategy and applied expertise (LLMs, agentic systems, human-in-the-loop)</li>
+<li>Agentic coding and AI-assisted software delivery</li>
+</ul>"""
+
+SKILLS_BLOCK_MUSIC = """<ul class="bullets">
+<li>Music publishing, licensing &amp; copyright operations</li>
+<li>Royalties, sync &amp; rights platform modernisation</li>
+<li>B2B platform scaling in music &amp; media</li>
+<li>Executive product &amp; technology leadership</li>
+<li>Portfolio strategy, prioritisation &amp; multi-year roadmaps</li>
+<li>P&amp;L ownership, budgeting &amp; vendor governance</li>
+<li>Stakeholder management across labels, societies &amp; partners</li>
+<li>AI strategy for music catalogue, metadata &amp; operations</li>
+</ul>"""
+
+
+@dataclass(frozen=True)
+class PdfVariant:
+    name: str
+    html_out: Path
+    pdf_out: Path
+    transform: Callable[[str], str]
+
 
 def _extract_main(html: str) -> str:
     match = re.search(r"<main>(.*?)</main>", html, re.DOTALL)
     if not match:
         raise SystemExit("Could not find <main> in index.html")
     return match.group(1).strip()
+
+
+def _apply_music_variant(main_html: str) -> str:
+    html = main_html
+    html = html.replace(
+        "<p class=\"profile-headline\">Senior Director / Head of Product (Technology) | Enterprise platforms in music, copyright &amp; data</p>",
+        "<p class=\"profile-headline\">Senior Director / Head of Product (Technology) | Music publishing, royalties &amp; rights technology</p>",
+    )
+    html = html.replace(
+        "<p class=\"profile-target\">Target role: Chief Product Officer, VP Product or Head of Technology Products in music, media &amp; enterprise platforms</p>",
+        "<p class=\"profile-target\">Target role: VP Product, Head of Technology or CPO at music companies, publishers, labels &amp; rights organisations</p>",
+    )
+    html = html.replace(
+        "<p class=\"txt\">Senior product and technology leader who aligns business, engineering and partners in complex rights and data environments. Background in hands-on content and technical operations, with progression into portfolio-level leadership. Focused on modernising enterprise platforms, AI-ready architecture and measurable business outcomes.</p>",
+        "<p class=\"txt\">Product and technology leader across music publishing, copyright and royalties — from hands-on music content operations to portfolio leadership at BMG. Deep domain knowledge in licensing, metadata, royalty platforms and B2B music tech; focused on modernising rights infrastructure and measurable outcomes for labels and publishers.</p>",
+    )
+    html = html.replace(SKILLS_BLOCK, SKILLS_BLOCK_MUSIC)
+    html = html.replace(
+        "<h2>Further experience</h2>",
+        "<h2>Music industry &amp; creative background</h2>",
+    )
+    html = html.replace(
+        "<li>Own portfolio of 50+ technology products and ~€40M IT budget; investment, roadmap and outcomes aligned with enterprise priorities</li>",
+        "<li>Own portfolio of 50+ technology products across royalties, copyright, sync and publishing workflows and ~€40M IT budget; investment, roadmap and outcomes aligned with music business priorities</li>",
+    )
+    html = html.replace(
+        "<li>Led decommissioning of legacy monolithic copyright and royalties platform (iMaestro); delivered sync pitching tool, microservices, headless architecture and APIs for AI transformation</li>",
+        "<li>Led decommissioning of legacy monolithic copyright and royalties platform (iMaestro); delivered sync pitching tool, microservices and APIs to modernise music publishing and royalty operations</li>",
+    )
+    html = html.replace(
+        "<li>Built content operations, CMS workflows and partner onboarding; introduced Scrum and scaled music as a core mobile content category.</li>",
+        "<li>Built music content operations, CMS workflows and label partner onboarding; introduced Scrum and scaled full-track music as a core mobile content category.</li>",
+    )
+    html = html.replace(
+        "<li>Ongoing music production; selected projects with artists such as ",
+        "<li>Active music producer and label entrepreneur; ongoing projects with artists such as ",
+    )
+    return html
 
 
 def _to_print_html(main_html: str) -> str:
@@ -292,6 +374,10 @@ def _to_print_html(main_html: str) -> str:
         '<section id="profile" class="cv-section allow-break">',
     )
     html = html.replace(
+        '<section id="core-expertise" class="cv-section">',
+        '<section id="core-expertise" class="cv-section allow-break">',
+    )
+    html = html.replace(
         '<section id="skills-knowledge" class="cv-section">',
         '<section id="skills-knowledge" class="cv-section allow-break">',
     )
@@ -300,8 +386,16 @@ def _to_print_html(main_html: str) -> str:
         '<section id="professional-experience" class="cv-section allow-break avoid-break-before">',
     )
     html = html.replace(
+        '<section id="music-creative" class="cv-section">',
+        '<section id="music-creative" class="cv-section allow-break">',
+    )
+    html = html.replace(
         '<section id="further-experience" class="cv-section">',
         '<section id="further-experience" class="cv-section allow-break">',
+    )
+    html = html.replace(
+        '<section id="education-additional" class="cv-section">',
+        '<section id="education-additional" class="cv-section allow-break">',
     )
     html = html.replace(
         '<section id="education" class="cv-section">',
@@ -331,20 +425,18 @@ def _to_print_html(main_html: str) -> str:
     return html
 
 
-def _wrap_document(body: str) -> str:
+def _wrap_document(body: str, title: str) -> str:
     return f"""<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<title>David Zaddach, Curriculum Vitae</title>
+<title>{title}</title>
 <style>{PRINT_CSS}</style>
-</head>
-<body>
+</head><body>
 <main>
 {body}
 </main>
-</body>
-</html>
+</body></html>
 """
 
 
@@ -387,19 +479,55 @@ def _html_to_pdf(html_path: Path, pdf_path: Path) -> None:
         )
 
 
+def _build_variant(source_main: str, variant: PdfVariant) -> None:
+    main_html = variant.transform(source_main)
+    document = _wrap_document(
+        _to_print_html(main_html),
+        f"David Zaddach, Curriculum Vitae ({variant.name})",
+    )
+    variant.html_out.parent.mkdir(parents=True, exist_ok=True)
+    variant.html_out.write_text(document, encoding="utf-8")
+    _html_to_pdf(variant.html_out, variant.pdf_out)
+    print(f"Wrote {variant.html_out}")
+    print(f"Wrote {variant.pdf_out}")
+
+
+def _variants() -> dict[str, PdfVariant]:
+    return {
+        "default": PdfVariant(
+            name="default",
+            html_out=ROOT / "src" / "David_Zaddach_CV_EN_2026_web.html",
+            pdf_out=ROOT / "public" / "David_Zaddach_CV_EN_2026_web.pdf",
+            transform=lambda html: html,
+        ),
+        "music": PdfVariant(
+            name="music",
+            html_out=ROOT / "src" / "David_Zaddach_CV_EN_2026_web_music.html",
+            pdf_out=ROOT / "public" / "David_Zaddach_CV_EN_2026_web_music.pdf",
+            transform=_apply_music_variant,
+        ),
+    }
+
+
 def main() -> None:
+    parser = argparse.ArgumentParser(description="Build web-styled CV PDF(s) from index.html")
+    parser.add_argument(
+        "--variant",
+        choices=("default", "music", "all"),
+        default="all",
+        help="PDF variant to build (default: all)",
+    )
+    args = parser.parse_args()
+
     if not INDEX.is_file():
         raise SystemExit(f"Missing source: {INDEX}")
 
-    main_html = _to_print_html(_extract_main(INDEX.read_text(encoding="utf-8")))
-    document = _wrap_document(main_html)
+    source_main = _extract_main(INDEX.read_text(encoding="utf-8"))
+    available = _variants()
 
-    HTML_OUT.parent.mkdir(parents=True, exist_ok=True)
-    HTML_OUT.write_text(document, encoding="utf-8")
-    _html_to_pdf(HTML_OUT, PDF_OUT)
-
-    print(f"Wrote {HTML_OUT}")
-    print(f"Wrote {PDF_OUT}")
+    names = list(available) if args.variant == "all" else [args.variant]
+    for name in names:
+        _build_variant(source_main, available[name])
 
 
 if __name__ == "__main__":

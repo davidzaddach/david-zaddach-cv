@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<title>David Zaddach, Curriculum Vitae</title>
+<title>David Zaddach, Curriculum Vitae (default)</title>
 <style>
 @import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400..700;1,9..40,400..700&display=swap');
 
@@ -127,14 +127,28 @@ a.employer-link {
   line-height: 1.45;
   color: #7a5c1e;
 }
-
-.profile-target {
-  margin: 0 0 0.55rem;
-  font-size: 0.85rem;
-  font-weight: 600;
-  line-height: 1.45;
-  color: var(--text);
+.hero .profile-headline {
+  margin: 0 0 0.75rem;
+  font-size: 0.92rem;
+  color: #7a5c1e;
 }
+.expertise-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .35rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.expertise-tags li {
+  font-size: .78rem;
+  padding: .22rem .5rem;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: var(--card-inner);
+  color: var(--muted);
+}
+.bullet-label { font-weight: 600; color: var(--text); }
 
 .company {
   font-weight: 700;
@@ -257,116 +271,102 @@ footer.page-footer {
   text-align: center;
 }
 </style>
-</head>
-<body>
+</head><body>
 <main>
 <header class="hero">
     <h1>Curriculum Vitae</h1>
     <div class="name">David Zaddach</div>
-    <p class="c-line">Lanker Str. 40a, 13125 Berlin, Germany</p><p class="c-line">Phone: <a class="c-link" href="tel:+4917634640687">+4917634640687</a> | Email: <a class="c-link" href="mailto:david.zaddach@gmail.com">david.zaddach@gmail.com</a></p><p class="c-line">Profile: <a class="c-link" href="https://linkedin.com/in/david-zaddach" target="_blank" rel="noopener noreferrer">linkedin.com/in/david-zaddach</a></p>
+    <p class="profile-headline">Product &amp; Technology Executive | Music Tech | Platforms, AI &amp; Digital Transformation</p>
+    <p class="c-line">Berlin, Germany</p>
+    <p class="c-line">Email: <a class="c-link" href="mailto:david.zaddach@gmail.com">david.zaddach@gmail.com</a> | Phone: <a class="c-link" href="tel:+4917634640687">+49 176 34640687</a></p>
+    <p class="c-line">LinkedIn: <a class="c-link" href="https://linkedin.com/in/david-zaddach" target="_blank" rel="noopener noreferrer">linkedin.com/in/david-zaddach</a></p>
   </header>
 <section id="profile" class="cv-section allow-break">
 <h2>Profile</h2>
-<p class="profile-headline">Senior Director / Head of Product (Technology) | Enterprise platforms in music, copyright &amp; data</p>
-<p class="profile-target">Target role: Chief Product Officer, VP Product or Head of Technology Products in music, media &amp; enterprise platforms</p>
-<p class="txt">Senior product and technology leader who aligns business, engineering and partners in complex rights and data environments. Background in hands-on content and technical operations, with progression into portfolio-level leadership. Focused on modernising enterprise platforms, AI-ready architecture and measurable business outcomes.</p>
+<p class="txt">Product and technology executive combining deep music-industry expertise with leadership of complex digital platforms and international product organizations. Currently lead BMG’s Technology Product organization, with responsibility for 50+ products across rights, royalties, digital supply chain, licensing and customer-facing music platforms, and approximately €17m in annual technology investment.</p>
+<p class="txt">Career spans the intersection of music and technology — from music production, digital content and distribution to copyright and licensing platforms and, today, enterprise-scale product leadership. Led major platform transformations from monolithic legacy systems to cloud-native microservices and event-driven architectures while building product organizations, governance models and modern AI-enabled product practices.</p>
 </section>
-<section id="skills-knowledge" class="cv-section allow-break">
-<h2>Skills &amp; knowledge</h2>
-<ul class="bullets">
-<li>Executive product &amp; technology leadership</li>
-<li>Portfolio strategy, prioritisation &amp; multi-year roadmaps</li>
-<li>P&amp;L ownership, budgeting &amp; vendor governance</li>
-<li>B2B platform scaling (music / copyright / data)</li>
-<li>Stakeholder &amp; board-level communication</li>
-<li>Music publishing, licensing &amp; copyright operations</li>
-<li>AI strategy and applied expertise (LLMs, agentic systems, human-in-the-loop)</li>
-<li>Agentic coding and AI-assisted software delivery</li>
+<section id="core-expertise" class="cv-section allow-break">
+<h2>Core expertise</h2>
+<ul class="expertise-tags">
+<li>Product Leadership</li>
+<li>Music Technology</li>
+<li>Portfolio Strategy</li>
+<li>AI Enablement</li>
+<li>Rights &amp; Royalties</li>
+<li>Digital Supply Chain</li>
+<li>Cloud &amp; Microservices</li>
+<li>APIs &amp; Headless Architecture</li>
+<li>Governance</li>
+<li>Vendor Management</li>
+<li>Technology Investment</li>
+<li>Licensing &amp; Sync</li>
 </ul>
 </section>
 <section id="professional-experience" class="cv-section allow-break avoid-break-before">
-<h2>Professional experience</h2>
-<div class="company"><a class="employer-link" href="https://www.bmg.com/en" target="_blank" rel="noopener noreferrer">BMG, The New Music Company</a>, Berlin</div>
-<div class="job"><div class="job-header"><span class="job-title">Senior Director Technology Products, Head of Product</span><span class="job-period">July 2023 to present</span></div>
+<h2>Experience</h2>
+<div class="company"><a class="employer-link" href="https://www.bmg.com/en" target="_blank" rel="noopener noreferrer">BMG — The New Music Company</a>, Berlin</div>
+<div class="job"><div class="job-header"><span class="job-title">Senior Director Technology Products / Head of Product</span><span class="job-period">July 2023 to present</span></div>
+<p class="txt">Lead BMG’s Technology Product organization and a portfolio of 50+ products and applications spanning rights, royalties, digital supply chain, licensing, finance, client services, marketing and corporate functions, including customer-facing platforms such as myBMG, BMG Production Music and BMG Sync Plus.</p>
 <ul class="bullets">
-<li>Own portfolio of 50+ technology products and ~€40M IT budget; investment, roadmap and outcomes aligned with enterprise priorities</li>
-<li>Lead 15 product owners (internal and external), 10 vendor partners and 150+ developers; align business units and engineering to deliver at scale</li>
-<li>Led decommissioning of legacy monolithic copyright and royalties platform (iMaestro); delivered sync pitching tool, microservices, headless architecture and APIs for AI transformation</li>
-<li>Full-cycle budget and vendor governance: selection, performance, risk, planning, prioritisation, approvals, forecasting and in-year control</li>
+<li><span class="bullet-label">Product &amp; Portfolio Leadership:</span> Lead an international product organization with 5 direct reports and ~10 extended/external team members across Europe, the US, Middle East and India. Oversee ~€17m in annual technology investment, strategic technology vendors and external development partners.</li>
+<li><span class="bullet-label">Rights &amp; Royalty Transformation:</span> Led the transformation of BMG’s copyright and royalty technology landscape away from monolithic, vendor-dependent systems toward a cloud-native microservices architecture, enabling faster development, independent deployments, continuous delivery, parallel royalty processing and greater scalability.</li>
+<li><span class="bullet-label">Event-Driven Platforms:</span> Led the introduction of Pub/Sub-based asynchronous integration across the microservices landscape, replacing legacy message-queue patterns and improving reliability and independence between domain applications.</li>
+<li><span class="bullet-label">Architecture &amp; API Strategy:</span> Co-founded BMG’s Architecture Board with Cloud and Data leadership and oversee adoption of headless architecture principles across the Product portfolio, including AI-ready APIs for downstream products, business users and emerging agentic use cases.</li>
+<li><span class="bullet-label">AI Enablement:</span> Lead adoption of generative AI within Product, embedding AI into discovery, analysis and prototyping and introducing reusable skills and agentic workflows, while partnering with Engineering on AI-assisted development, code review and delivery standards.</li>
+<li><span class="bullet-label">Digital Experience Modernization:</span> Oversaw the transition of BMG’s web and content ecosystem from Magnolia to a reusable Contentful-based headless platform, alongside portfolio oversight for the 2026 launch of BMG Sync Plus.</li>
+<li><span class="bullet-label">Product Organization &amp; Governance:</span> Built and developed Product as a dedicated function within Technology and established a portfolio prioritization framework, company-wide Product Days and quarterly product reviews to strengthen investment discipline, transparency and product culture.</li>
 </ul>
 </div>
 <div class="job"><div class="job-header"><span class="job-title">Director Business Services</span><span class="job-period">Jan. 2023 to July 2023</span></div>
-<ul class="bullets">
-<li>Drove evolution of business services products and operating processes; improved service delivery and operational readiness across the unit</li>
-<li>Aligned operations, product and business stakeholders on priorities and roadmap; reduced handoff friction and kept cross-functional delivery on track</li>
-</ul>
+<p class="txt">Expanded responsibility for strategic vendor management, commercial negotiations and technology contracts while continuing to lead the iMaestro transformation and Business Services product portfolio.</p>
 </div>
 <div class="job"><div class="job-header"><span class="job-title">Senior Product Owner Business Services</span><span class="job-period">May 2022 to Dec. 2022</span></div>
+<p class="txt">Joined BMG with a mandate to lead the decommissioning and modernization of iMaestro, BMG’s legacy monolithic copyright and royalty platform, transitioning critical capabilities toward a modular, cloud-native product landscape.</p>
+</div>
+<div class="company"><a class="employer-link" href="https://www.ice-copyright.com/en" target="_blank" rel="noopener noreferrer">ICE — International Copyright Enterprise / ICE Services GmbH</a></div>
+<div class="job"><div class="job-header"><span class="job-title">Product &amp; product ownership roles</span><span class="job-period">Oct. 2015 to April 2022</span></div>
+<p class="txt">Senior Product Owner (2020–2022) · Product Owner (2018–2020) · Business Analyst (2016–2017) · Senior Product Manager, Online Operations (2015–2016)</p>
 <ul class="bullets">
-<li>Owned business services backlog and priorities; translated requirements into a focused roadmap aligned with business outcomes</li>
-<li>Partnered with engineering and business teams to clarify scope, unblock delivery and maintain predictable release cadence</li>
+<li><span class="bullet-label">Product Ownership:</span> Owned roadmap, backlog and delivery for an import platform and a licensing platform, working with two cross-functional Scrum teams consisting primarily of external developers.</li>
+<li><span class="bullet-label">Rights &amp; Licensing Technology:</span> Translated complex copyright, licensing and operational requirements into scalable product capabilities for collecting societies and music publishers.</li>
+<li><span class="bullet-label">Stakeholder Management:</span> Aligned priorities across business, technology, customers and shareholders in a complex international multi-stakeholder environment.</li>
 </ul>
 </div>
-<div class="company"><a class="employer-link" href="https://www.ice-copyright.com/en" target="_blank" rel="noopener noreferrer">ICE (International Copyright Enterprise) / ICE Services GmbH</a>, Germany</div>
-<div class="job"><div class="job-header"><span class="job-title">Senior Product Owner</span><span class="job-period">May 2020 to April 2022</span></div>
+<div class="company">freenet digital / Jesta Digital / Fox Mobile Distribution / Jamba, Berlin</div>
+<div class="job"><div class="job-header"><span class="job-title">Product management, content operations &amp; team leadership</span><span class="job-period">2008 to 2015</span></div>
+<p class="txt">Progressed from music content operations and team leadership into Product Management, combining digital music, technology, partner integration and product development.</p>
 <ul class="bullets">
-<li>Owned outcomes for all online processing systems and two Scrum teams; delivered roadmap priorities for <a class="employer-link" href="https://www.ice-copyright.com/en" target="_blank" rel="noopener noreferrer">ICE</a>'s licensing back office serving collecting societies and publishers</li>
-<li>Aligned business, IT, customer and shareholder stakeholders on backlog and releases; kept cross-functional delivery predictable at platform scale</li>
-<li>Drove online operations coordination including dispute management; improved reliability and throughput of high-volume copyright and licensing workflows</li>
-<li>Translated operational and regulatory requirements into backlog priorities; sustained continuous delivery across the online processing portfolio</li>
-</ul>
-</div>
-<div class="job"><div class="job-header"><span class="job-title">Earlier roles: product management and business analysis</span><span class="job-period">2015 to 2020</span></div>
-<ul class="bullets">
-<li>Progressed from senior product manager and business analyst to product owner for ICE's online copyright and licensing platform.</li>
-<li>Owned requirements, specifications and backlog prioritisation for online processing systems and platform development.</li>
-<li>Partnered with engineering on continuous delivery and aligned releases with business and operational goals.</li>
-</ul>
-</div>
-<div class="company"><a class="employer-link" href="https://www.freenet-group.de/en" target="_blank" rel="noopener noreferrer">freenet digital GmbH</a> (Jesta Digital &amp; Fox Mobile Distribution), Berlin</div>
-<div class="job"><div class="job-header"><span class="job-title">Earlier career: product, content operations and team leadership</span><span class="job-period">2008 to 2015</span></div>
-<ul class="bullets">
-<li>Progressed from team lead for audio production and content ingestion to product manager for mobile products and content services.</li>
-<li>Built content operations, CMS workflows and partner onboarding; introduced Scrum and scaled music as a core mobile content category.</li>
-<li>Owned roadmaps, KPI tracking and launch delivery across content ingestion, licensing, metadata and mobile product releases.</li>
+<li><span class="bullet-label">Music, Content &amp; Platforms:</span> Managed digital content and metadata across music, audio, visual and video products, including ingestion, licensing, APIs/frontends and internal content-management tools.</li>
+<li><span class="bullet-label">Product &amp; Technology:</span> Worked as Product Owner and Scrum Master within cross-functional development, shaping product direction and technical roadmaps before moving into Product Management for mobile products.</li>
+<li><span class="bullet-label">Leadership &amp; Partner Delivery:</span> Led a team of up to seven people and coordinated international launches across Engineering, QA, labels, distributors, external partners and service providers.</li>
 </ul>
 </div>
 </section>
-<section id="further-experience" class="cv-section allow-break">
-<h2>Further experience</h2>
-<div class="job"><div class="job-header"><span class="job-title">Music production &amp; independent label</span><span class="job-period">2000 to present</span></div>
-<ul class="bullets">
-<li>Ongoing music production; selected projects with artists such as <a class="employer-link" href="https://instagram.com/knallersoundsystem" target="_blank" rel="noopener noreferrer">Knaller Soundsystem</a> and <a class="employer-link" href="https://www.instagram.com/davidmainmusic/" target="_blank" rel="noopener noreferrer">David Main</a>.</li>
-<li>Co-founded and managed independent label 24-7 Records (2003 to 2005).</li>
-</ul>
+<section id="music-creative" class="cv-section allow-break">
+<h2>Music &amp; creative background</h2>
+<div class="job"><div class="job-header"><span class="job-title">Music producer &amp; engineer</span><span class="job-period">2000 to present</span></div>
+<p class="txt">Music production, recording and artist projects with a focus on hip-hop music.</p>
 </div>
-<div class="job no-split"><div class="job-header"><span class="job-title">Internships and early industry roles</span><span class="job-period">1999 to 2008</span></div>
-<ul class="bullets">
-<li><a class="employer-link" href="https://www.universalmusic.com/" target="_blank" rel="noopener noreferrer">Universal Music</a>, Berlin — internship in product coordination / operations (2007 to 2008).</li>
-<li>Project work in marketing &amp; PR at <a class="employer-link" href="https://www.adk.de/en" target="_blank" rel="noopener noreferrer">Akademie der Künste</a>, Studio for Electroacoustic Music, Berlin (2006).</li>
-<li>Sound recording / engineering for short film &quot;Wasser &amp; Papayas&quot; (2006).</li>
-<li>Project work in marketing &amp; PR at <a class="employer-link" href="https://rianoni.de/" target="_blank" rel="noopener noreferrer">Rianoni Music</a>, Berlin (2005).</li>
-<li><a class="employer-link" href="https://www.moneypennyprod.fr/" target="_blank" rel="noopener noreferrer">Moneypenny</a>, Paris — music production internship (2002).</li>
-<li><a class="employer-link" href="https://www.dresearch.de/" target="_blank" rel="noopener noreferrer">DResearch Digital Media Systems GmbH</a> — assistant on projects and administration (1999 to 2001).</li>
-</ul>
+<div class="job"><div class="job-header"><span class="job-title">24-7 Records — co-founder</span><span class="job-period">2003 to 2005</span></div>
+<p class="txt">Co-founded and managed an independent music label.</p>
+</div>
+<div class="job"><div class="job-header"><span class="job-title"><a class="employer-link" href="https://www.universalmusic.com/" target="_blank" rel="noopener noreferrer">Universal Music</a>, Berlin — product coordination / operations</span><span class="job-period">2007 to 2008</span></div>
+<p class="txt">Product coordination and operations in a major label environment.</p>
 </div>
 </section>
-<section id="education" class="cv-section allow-break">
-<h2>Education</h2>
-<div class="job"><div class="job-header"><span class="job-title">Magister Artium ,  Technische Universität Berlin</span><span class="job-period">Graduated 2007</span></div>
+<section id="education-additional" class="cv-section allow-break">
+<h2>Education &amp; additional</h2>
+<div class="job"><div class="job-header"><span class="job-title">Magister Artium (Master’s equivalent), Technische Universität Berlin</span><span class="job-period">Graduated 2007</span></div>
 <ul class="bullets">
-<li>Overall grade: very good.</li>
-<li>Master thesis (German title): Die Nutzung der Zensur aus künstlerischen und ökonomischen Interessen in der Popularmusik (grade: very good).</li>
-<li>Major: musicology (2002 to 2007).</li>
-<li>Minors: economics, communication science.</li>
+<li>Musicology · Economics · Communication Science</li>
+<li>Master’s thesis: Censorship, art &amp; economics in popular music — grade 1.0</li>
 </ul>
 </div>
-</section>
-<section id="certifications-selection" class="cv-section allow-break">
-<h2>Certifications (selection)</h2>
 <ul class="bullets">
-<li>Bertelsmann IT Circle (3 years project for IT experts within Bertelsmann)</li>
-<li>ITIL (Information Technology Infrastructure Library) certification</li>
+<li>Bertelsmann IT Circle Program | 2024–2026</li>
+<li>International Music Publishing Summer School | 2020</li>
+<li>ITIL® Foundation Certificate in IT Service Management</li>
 </ul>
 </section>
 <section id="languages" class="cv-section allow-break avoid-break-before">
@@ -374,7 +374,6 @@ footer.page-footer {
 <ul class="bullets">
 <li>German: native</li>
 <li>English: fluent</li>
-</ul><p class="page-footer">Berlin, 12 May 2026</p></section>
+</ul><p class="page-footer">Berlin, August 2026</p></section>
 </main>
-</body>
-</html>
+</body></html>
